@@ -20,7 +20,7 @@ class ProductosModel extends Model {
         estado: {
           type: DataTypes.TINYINT.UNSIGNED,
           allowNull: false,
-          field: '',
+          field: 'estado',
           defaultValue: 1
         },
         kit: {

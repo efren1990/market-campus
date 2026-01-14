@@ -9,6 +9,7 @@ const { DataBase, sequelize } = require('../db/connection');
 
 //# Class: Servidor >>>
 class Server {
+  
   //# [MET]: Constructor >>>
   constructor() {
     this.app = express();
@@ -18,7 +19,7 @@ class Server {
   
   //# [MET]: Rutas >>>
   routes() {
-
+    
   }
   
   //# [MET]: Listen Express Server 1 >>>

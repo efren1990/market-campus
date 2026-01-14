@@ -12,7 +12,21 @@ class ProductosCategoriasModel extends Model {
   static initialize(sequelizeInstance) {
     const ProductosCategorias = super.init(
       {
-
+        id: {
+          type: DataTypes.INTEGER.UNSIGNED,
+          primaryKey: true,
+          autoIncrement: true,
+        },
+        id_categoria: {
+          type: DataTypes.SMALLINT.UNSIGNED,
+          allowNull: false,
+          field: 'id_categoria'
+        },
+        id_producto: {
+          type: DataTypes.INTEGER.UNSIGNED,
+          allowNull: false,
+          field: 'id_producto'
+        },
       },
       {
         sequelize: sequelizeInstance,
