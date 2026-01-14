@@ -80,7 +80,6 @@ class TiendasModel extends Model {
         tableName: 'tiendas'
       }
     );
-
     //# Retorno Obj Modelo >>>
     return Tiendas;
 

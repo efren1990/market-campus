@@ -5,6 +5,7 @@
 const { Sequelize } = require('sequelize');
 const config = require('../config/config');
 const TiendasModel = require('../models/Tiendas');
+const ProductosModel = require('../models/Productos');
 
 //# CLASS: Conexión >>>
 class DataBase {
@@ -17,6 +18,7 @@ class DataBase {
   //# [MET]: Incializacion de Modelos >>>
   initializeModels() {
     this.TiendasModel = TiendasModel.initialize(this.sequelize);
+    this.ProductosModel = ProductosModel.initialize(this.sequelize);
   }
 
   //# [MET]: Asociación de Modelos >>>
