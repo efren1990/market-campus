@@ -5,6 +5,8 @@
 // =============================================== //
 //# IMPORTS >>>
 const { DataTypes, Model } = require('sequelize');
+const ProductosModel = require('./Productos');
+const CategoriasModel = require('./Categorias');
 
 //# [Model]: Tiendas >>>
 class ProductosCategoriasModel extends Model {
@@ -20,12 +22,20 @@ class ProductosCategoriasModel extends Model {
         id_categoria: {
           type: DataTypes.SMALLINT.UNSIGNED,
           allowNull: false,
-          field: 'id_categoria'
+          field: 'id_categoria',
+          references: {
+            model: 'categorias',
+            key: 'id'
+          }
         },
         id_producto: {
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: false,
-          field: 'id_producto'
+          field: 'id_producto',
+          references: {
+            model: 'productos',
+            key: 'id'
+          }
         },
       },
       {
@@ -40,6 +50,10 @@ class ProductosCategoriasModel extends Model {
   }
   //# [MET]: Asociaciones >>>
   static associate() {
-
+    this.belongsTo(ProductosModel, {foreignKey: 'id_producto', as: 'producto'});
+    this.belongsTo(CategoriasModel, { foreignKey: 'id_categoria', as: 'categoria' });
   }
 }
+
+//# EXPORTS >>>
+module.exports = ProductosCategoriasModel;

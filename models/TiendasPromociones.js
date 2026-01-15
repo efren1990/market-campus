@@ -5,6 +5,8 @@
 // =============================================== //
 //# IMPORTS >>>
 const { DataTypes, Model } = require('sequelize');
+const TiendasModel = require('./Tiendas');
+const PromocionesModel = require('./Promociones');
 
 //# [Model]: Tiendas >>>
 class TiendasPromocionesModel extends Model {
@@ -35,12 +37,20 @@ class TiendasPromocionesModel extends Model {
         id_tienda: {
           type:  DataTypes.SMALLINT.UNSIGNED,
           allowNull: false,
-          field: 'id_tienda'
+          field: 'id_tienda',
+          references: {
+            model: 'tiendas',
+            key: 'id'
+          }
         },
         id_promocion: {
           type: DataTypes.MEDIUMINT.UNSIGNED,
           allowNull: false,
-          field: 'id_promocion'
+          field: 'id_promocion',
+          references: {
+            model: 'promociones',
+            key: 'id'
+          }
         },
       },
       {
@@ -49,12 +59,16 @@ class TiendasPromocionesModel extends Model {
         tableName: 'tiendasPromociones'
       }
     );
-
     return TiendasPromociones;
-
   }
+
   //# [MET]: Asociaciones >>>
   static associate() {
-
+    this.belongsTo(TiendasModel, { foreignKey: 'id_tienda', as: 'tienda' });
+    this.belongsTo(PromocionesModel, { foreignKey: 'id_promocion', as: 'promociones' });
   }
+
 }
+
+//# EXPORTS >>>
+module.exports = TiendasPromocionesModel;

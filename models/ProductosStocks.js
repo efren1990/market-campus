@@ -5,6 +5,8 @@
 // =============================================== //
 //# IMPORTS >>>
 const { DataTypes, Model } = require('sequelize');
+const TiendasModel = require('./Tiendas');
+const ProductosModel = require('./Productos');
 
 //# [Model]: Tiendas >>>
 class ProductosStocksModel extends Model {
@@ -18,19 +20,27 @@ class ProductosStocksModel extends Model {
           autoIncrement: true
         },
         cantidad:{
-          type: DataTypes.FLOAT(8.3),
+          type: DataTypes.DECIMAL(8.3),
           allowNull: false,
           field: 'cantidad'
         },
         id_tienda:{
           type: DataTypes.SMALLINT.UNSIGNED,
           allowNull: false,
-          field: 'id_tienda'
+          field: 'id_tienda',
+          references: {
+            model: 'tiendas',
+            key: 'id'
+          }
         },
         id_producto:{
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: false,
-          field: 'id_producto'
+          field: 'id_producto',
+          references: {
+            model: 'productos',
+            key: 'id'
+          }
         },
         fecha_ingreso:{
           type: DataTypes.DATE,
@@ -50,6 +60,10 @@ class ProductosStocksModel extends Model {
   }
   //# [MET]: Asociaciones >>>
   static associate() {
-
+    this.belongsTo(TiendasModel, { foreignKey: 'id_tienda', as: 'tienda' });
+    this.belongsTo(ProductosModel, { foreignKey: 'id_producto', as: 'producto' });
   }
 }
+
+//# EXPORTS >>>
+module.exports = ProductosStocksModel;

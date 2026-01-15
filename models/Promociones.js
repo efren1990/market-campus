@@ -54,6 +54,10 @@ class PromocionesModel extends Model {
 
   //# [MET]: Asociaciones >>>
   static associate() {
-
+    
   }
+  
 }
+
+//# EXPORTS >>>
+module.exports = PromocionesModel;

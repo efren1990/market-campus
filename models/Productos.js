@@ -25,12 +25,12 @@ class ProductosModel extends Model {
         },
         kit: {
           type: DataTypes.TINYINT,
-          allowNull: false,
+          allowNull: true,
           field: 'kit',
         },
         barcode: {
           type: DataTypes.STRING(30),
-          allowNull: false,
+          allowNull: true,
           field: 'barcode',
         },
         nombre: {
@@ -40,17 +40,17 @@ class ProductosModel extends Model {
         },
         presentacion: {
           type: DataTypes.STRING(25),
-          allowNull: false,
+          allowNull: true,
           field: 'presentacion',
         },
         descripcion: {
           type: DataTypes.STRING(500),
-          allowNull: false,
+          allowNull: true,
           field: 'descripcion',
         },
         foto: {
           type: DataTypes.STRING(120),
-          allowNull: false,
+          allowNull: true,
           field: 'foto',
         },
         peso: {

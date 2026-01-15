@@ -5,6 +5,7 @@
 // =============================================== //
 //# IMPORTS >>>
 const { DataTypes, Model } = require('sequelize');
+const TiendasModel = require('./Tiendas');
 
 //# [Model]: Tiendas >>>
 class PedidosModel extends Model {
@@ -20,67 +21,71 @@ class PedidosModel extends Model {
         instrucciones: {
           type: DataTypes.STRING(500),
           allowNull: false,
-          field: ''
+          field: 'instrucciones'
         },
         entrega_fecha: {
           type: DataTypes.DATE,
           allowNull: false,
-          field: ''
+          field: 'entrega_fecha'
         },
         valor_productos: {
-          type:  DataTypes.FLOAT(12.3),
+          type:  DataTypes.DECIMAL(12.3),
           allowNull: false,
-          field: ''
+          field: 'valor_productos'
         },
         valor_envio: {
-          type:  DataTypes.FLOAT(10.3),
+          type:  DataTypes.DECIMAL(10.3),
           allowNull: false,
-          field: ''
+          field: 'valor_envio'
         },
         valor_descuento: {
-          type:  DataTypes.FLOAT(12.3),
+          type:  DataTypes.DECIMAL(12.3),
           allowNull: false,
-          field: ''
+          field: 'valor_descuento'
         },
         valor_cupon: {
-          type:  DataTypes.FLOAT(11.3),
+          type:  DataTypes.DECIMAL(11.3),
           allowNull: false,
-          field: ''
+          field: 'valor_cupon'
         },
         impuestos: {
-          type:  tiny,
+          type:  DataTypes.TINYINT.UNSIGNED,
           allowNull: false,
-          field: ''
+          field: 'impuestos'
         },
         valor_impuestos: {
-          type:  DataTypes.FLOAT(11.3),
+          type:  DataTypes.DECIMAL(11.3),
           allowNull: false,
-          field: ''
+          field: 'valor_impuestos'
         },
         valor_final: {
-          type:  DataTypes.FLOAT(12.3),
+          type:  DataTypes.DECIMAL(12.3),
           allowNull: false,
-          field: ''
-        },
-        calificación: {
-          type:  DataTypes.FLOAT(3.2),
+          field: 'valor_final'
+        },  
+        calificacion: {
+          type:  DataTypes.DECIMAL(3.2),
           allowNull: false,
-          field: ''
+          field: 'calificacion'
         },
         id_tienda: {
-          type:  smallint,
+          type:  DataTypes.SMALLINT.UNSIGNED,
           allowNull: false,
-          field: ''
+          field: 'id_tienda',
+          references: {
+            model: 'tiendas',
+            key: 'id'
+          }
         },
-        dirección: {
-          type:  varchar 160,
+        direccion: {
+          type:  DataTypes.STRING(160),
           allowNull: false,
-          field: ''
+          field: 'direccion'
         },
         valor_comision: {
-          type:  DataTypes.FLOAT(11.3),
+          type:  DataTypes.DECIMAL(11.3),
           allowNull: false,
-          field: ''
+          field: 'valor_comision'
         },
       },
       {
@@ -95,6 +100,7 @@ class PedidosModel extends Model {
   }
   //# [MET]: Asociaciones >>>
   static associate() {
-
+    this.belongsTo(TiendasModel, { foreignKey: 'id_tienda', as: 'tienda' });
   }
 }
+module.exports = PedidosModel;

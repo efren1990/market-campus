@@ -41,3 +41,5 @@ class CategoriasModel extends Model {
 
   }
 }
+
+module.exports = CategoriasModel;
