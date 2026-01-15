@@ -4,6 +4,8 @@
 /** @Desc: Datos Masivos para inserción */
 // =============================================== //
 //# >>>
+
+// Categorias
 const categorias = [
   {
     nombre: 'Frutas y Verduras',
@@ -39,6 +41,8 @@ const categorias = [
   },
 ];
 
+// Tiendas
+// 3 Tiendas
 const tiendas = [
   {
     nombre: 'D1',
@@ -63,6 +67,8 @@ const tiendas = [
   },
 ];
 
+// Productos
+// 13 Productos
 const productos = [
   {
     nombre: 'Gaseosa Coca Cola',
@@ -143,6 +149,76 @@ const productos = [
     peso: 255
   },
 ];
+
+// Productos:Stocks 
+const productosStocks = [
+  {
+    cantidad: 10,
+	  id_tienda: 1,
+	  id_producto: 1,
+	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  },
+  {
+    cantidad: 50,
+	  id_tienda: 1,
+	  id_producto: 2,
+	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  },
+  {
+    cantidad: 30,
+	  id_tienda: 1,
+	  id_producto: 3,
+	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  },
+  {
+    cantidad: 150,
+	  id_tienda: 1,
+	  id_producto: 5,
+	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  },
+  {
+    cantidad: 82,
+	  id_tienda: 1,
+	  id_producto: 8,
+	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  },
+  {
+    cantidad: 10,
+	  id_tienda: 2,
+	  id_producto: 3,
+	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  },
+  {
+    cantidad: 50,
+	  id_tienda: 2,
+	  id_producto: 4,
+	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  },
+  {
+    cantidad: 30,
+	  id_tienda: 2,
+	  id_producto: 5,
+	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  },
+  {
+    cantidad: 150,
+	  id_tienda: 2,
+	  id_producto: 6,
+	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  },
+  {
+    cantidad: 82,
+	  id_tienda: 2,
+	  id_producto: 10,
+	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  },
+];
+
+// Productos:Categorias 
+const productosCategorias = [
+  
+]
+//# Exports >>>
 module.exports = {
   categorias,
   tiendas,

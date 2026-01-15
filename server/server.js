@@ -19,7 +19,8 @@ class Server {
     this.database = new DataBase(sequelize);
     this.endpoints = {
       testing: `/api/testing`,
-      bulkdata: `/api/bulkdata`
+      bulkdata: `/api/bulkdata`,
+      productos: `/api/productos`
     }
     this.middlewares();
     this.routes();
@@ -36,9 +37,13 @@ class Server {
   routes() {
     //# Testing >>>
     this.app.use(this.endpoints.testing, require('../routes/test.routes'));
+    
     //# Datos Masivos >>>
     this.app.use(this.endpoints.bulkdata, require('../routes/bulk.data.routes'));
-    //# >>>
+    
+    //# Productos >>>
+    this.app.use(this.endpoints.productos, require('../routes/productos.routes'));
+
   }
   
   //# [MET]: Listen Express Server 1 >>>
