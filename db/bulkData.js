@@ -156,71 +156,171 @@ const productosStocks = [
     cantidad: 10,
 	  id_tienda: 1,
 	  id_producto: 1,
-	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
   {
     cantidad: 50,
 	  id_tienda: 1,
 	  id_producto: 2,
-	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
   {
     cantidad: 30,
 	  id_tienda: 1,
 	  id_producto: 3,
-	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
   {
     cantidad: 150,
 	  id_tienda: 1,
 	  id_producto: 5,
-	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
   {
     cantidad: 82,
 	  id_tienda: 1,
 	  id_producto: 8,
-	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
   {
     cantidad: 10,
 	  id_tienda: 2,
 	  id_producto: 3,
-	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
   {
     cantidad: 50,
-	  id_tienda: 2,
-	  id_producto: 4,
-	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+	  id_tienda: 3,
+	  id_producto: 13,
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
   {
     cantidad: 30,
-	  id_tienda: 2,
+	  id_tienda: 3,
 	  id_producto: 5,
-	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
   {
     cantidad: 150,
-	  id_tienda: 2,
-	  id_producto: 6,
-	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+	  id_tienda: 3,
+	  id_producto: 1,
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
   {
     cantidad: 82,
-	  id_tienda: 2,
-	  id_producto: 10,
-	  fecha_ingreso: new Date().toISOString().slice(0, 19).replace('T', ' ')
+	  id_tienda: 3,
+	  id_producto: 2,
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
 ];
 
 // Productos:Categorias 
 const productosCategorias = [
-  
-]
+  {
+    id_categoria:4 ,	
+    id_producto: 1,	
+  },
+  {
+    id_categoria:3 ,	
+    id_producto: 2,	
+  },
+  {
+    id_categoria:2 ,	
+    id_producto: 3,	
+  },
+  {
+    id_categoria:4 ,	
+    id_producto: 4,	
+  },
+  {
+    id_categoria:5 ,	
+    id_producto: 5,	
+  },
+  {
+    id_categoria:6 ,	
+    id_producto: 6,	
+  },
+  {
+    id_categoria:6 ,	
+    id_producto: 7,	
+  },
+  {
+    id_categoria:3 ,	
+    id_producto: 8,	
+  },
+  {
+    id_categoria:7 ,	
+    id_producto: 9,	
+  },
+  {
+    id_categoria:1 ,	
+    id_producto: 10,	
+  },
+  {
+    id_categoria:8 ,	
+    id_producto: 11,	
+  },
+  {
+    id_categoria:3 ,	
+    id_producto: 12,	
+  },
+  {
+    id_categoria:4 ,	
+    id_producto: 13,	
+  }
+];
+
+const pedidos = [
+  { 	
+    instrucciones: 'Casa Verde',
+    entrega_fecha	: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).split('T')[0],
+    impuestos: 19,
+    id_tienda: 1,
+    direccion	: 'CR18 #25-25',
+  },  
+  { 	
+    instrucciones: 'Casa Blanca',
+    entrega_fecha	: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).split('T')[0],
+    impuestos: 19,
+    id_tienda: 1,
+    direccion	: 'CR18 #25-25',
+  },  
+  { 	
+    instrucciones: 'Apto 302',
+    entrega_fecha	: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).split('T')[0],
+    impuestos: 19,
+    id_tienda: 2,
+    direccion	: 'CR56 #17-25',
+  },  
+  { 	
+    instrucciones: 'Apto 505',
+    entrega_fecha	: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).split('T')[0],
+    impuestos: 19,
+    id_tienda: 2,
+    direccion	: 'CR56 #17-25',
+  },  
+  { 	
+    instrucciones: 'Edificio k21 apto 101',
+    entrega_fecha	: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).split('T')[0],
+    impuestos: 19,
+    id_tienda: 3,
+    direccion	: 'Av Siempre viva #16',
+  },  
+  { 	
+    instrucciones: 'Edificio Angel apto 666',
+    entrega_fecha	: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).split('T')[0],
+    impuestos: 19,
+    id_tienda: 3,
+    direccion	: 'Av Siempre viva #16',
+  } 
+];
+
 //# Exports >>>
 module.exports = {
   categorias,
   tiendas,
-  productos
+  productos,
+  productosStocks,
+  productosCategorias,
+  pedidos
 }

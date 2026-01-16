@@ -30,22 +30,22 @@ class PedidosModel extends Model {
         },
         valor_productos: {
           type:  DataTypes.DECIMAL(12.3),
-          allowNull: false,
+          allowNull: true,
           field: 'valor_productos'
         },
         valor_envio: {
           type:  DataTypes.DECIMAL(10.3),
-          allowNull: false,
+          allowNull: true,
           field: 'valor_envio'
         },
         valor_descuento: {
           type:  DataTypes.DECIMAL(12.3),
-          allowNull: false,
+          allowNull: true,
           field: 'valor_descuento'
         },
         valor_cupon: {
           type:  DataTypes.DECIMAL(11.3),
-          allowNull: false,
+          allowNull: true,
           field: 'valor_cupon'
         },
         impuestos: {
@@ -55,17 +55,17 @@ class PedidosModel extends Model {
         },
         valor_impuestos: {
           type:  DataTypes.DECIMAL(11.3),
-          allowNull: false,
+          allowNull: true,
           field: 'valor_impuestos'
         },
         valor_final: {
           type:  DataTypes.DECIMAL(12.3),
-          allowNull: false,
+          allowNull: true,
           field: 'valor_final'
         },  
         calificacion: {
           type:  DataTypes.DECIMAL(3.2),
-          allowNull: false,
+          allowNull: true,
           field: 'calificacion'
         },
         id_tienda: {
@@ -84,7 +84,7 @@ class PedidosModel extends Model {
         },
         valor_comision: {
           type:  DataTypes.DECIMAL(11.3),
-          allowNull: false,
+          allowNull: true,
           field: 'valor_comision'
         },
       },

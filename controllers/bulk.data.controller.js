@@ -7,9 +7,12 @@
 const { request, response } = require('express');
 const { sequelize } = require('../db/connection');
 const CategoriasModel = require('../models/Categorias');
-const { categorias, tiendas, productos } = require('../db/bulkData');
+const { categorias, tiendas, productos, productosCategorias, productosStocks, pedidos } = require('../db/bulkData');
 const TiendasModel = require('../models/Tiendas');
 const ProductosModel = require('../models/Productos');
+const ProductosCategoriasModel = require('../models/ProductosCategorias');
+const ProductosStocksModel = require('../models/ProductosStocks');
+const PedidosModel = require('../models/Pedidos');
 
 //# [Class]: Bulk Data >>>
 class BulkDataController {
@@ -35,6 +38,18 @@ class BulkDataController {
       if (!existProductos) { 
         await this.crearDatos('pro');
       }
+      const existProCategorias = await ProductosCategoriasModel.findOne();
+      if (!existProCategorias) {
+        await this.crearDatos('procates')
+      }
+      const existProStock = await ProductosStocksModel.findOne();
+      if (!existProStock) {
+        await this.crearDatos('prostock')
+      }
+      const existPedidos = await PedidosModel.findOne();
+      if (!existPedidos) {
+        await this.crearDatos('pedidos')
+      }
 
       res.status(200).json({
         msg: 'Datos insertados !!!'
@@ -53,7 +68,8 @@ class BulkDataController {
   async crearDatos(type) {
     await sequelize.transaction(async(t) => {
         switch(type) {
-        // Categorias
+        
+          // Categorias
         case 'cat':
           await CategoriasModel.bulkCreate(categorias, {transaction: t});
         break;
@@ -66,6 +82,19 @@ class BulkDataController {
         // Productos
         case 'pro':
           await ProductosModel.bulkCreate(productos, { transaction: t })
+        break;
+
+        // Productos y Categrias
+        case 'procates':
+          await ProductosCategoriasModel.bulkCreate(productosCategorias, { transaction: t });
+        break;
+        // Productos y Stocks
+        case 'prostock':
+          await ProductosStocksModel.bulkCreate(productosStocks, { transaction: t });
+        break;
+        // Pedidos
+        case 'pedidos':
+          await PedidosModel.bulkCreate(pedidos, { transaction: t });
         break;
       }
       

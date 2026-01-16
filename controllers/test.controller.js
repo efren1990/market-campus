@@ -11,7 +11,8 @@ const { request, response } = require('express');
 class TestingController {
   test(req=request, res=response) {
     res.status(200).json({
-      msg: 'test ok!!!'
+      msg: 'test ok!!!',
+      fec: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
     });
   }  
   testBody(req=request, res=response){
