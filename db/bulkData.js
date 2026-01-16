@@ -315,6 +315,19 @@ const pedidos = [
   } 
 ];
 
+const pedidos_productos = [
+  {
+    cantidad: '',
+    valor_unitario: '',
+    valor_unitario_promocion: '',
+    total_teorico: '',
+    total_final: '',
+    id_promocion: '',
+    id_producto: '',
+    id_pedido: '',
+  }
+];
+
 //# Exports >>>
 module.exports = {
   categorias,
