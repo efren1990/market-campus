@@ -317,17 +317,40 @@ const pedidos = [
 
 const pedidos_productos = [
   {
-    cantidad: '',
-    valor_unitario: '',
-    valor_unitario_promocion: '',
-    total_teorico: '',
-    total_final: '',
+    cantidad: 5,
+    valor_unitario: 3000,
+    valor_unitario_promocion: 2500,
+    total_teorico: 3000,
+    total_final: 15000,
     id_promocion: '',
     id_producto: '',
     id_pedido: '',
   }
 ];
 
+const promociones = [
+  {
+    estado: 1,
+    nombre: 'Promo 1',
+    imagen: '',
+    porcentaje: 5,
+    dias_semana: '["1", "0", "0", "0", "0", "0", "0"]',
+  },
+  {
+    estado: 1,
+    nombre: 'Promo 2',
+    imagen: '',
+    porcentaje: 3,
+    dias_semana: '["0", "0", "1", "0", "0", "0", "0"]',
+  },
+  {
+    estado: 1,
+    nombre: 'Promo 3',
+    imagen: '',
+    porcentaje: 4,
+    dias_semana: '["0", "0", "0", "0", "0", "0", "1"]',
+  },
+]
 //# Exports >>>
 module.exports = {
   categorias,
@@ -335,5 +358,6 @@ module.exports = {
   productos,
   productosStocks,
   productosCategorias,
-  pedidos
+  pedidos,
+  promociones
 }
