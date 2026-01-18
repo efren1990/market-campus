@@ -19,8 +19,8 @@
 6. Para correr el proyecto puede usar los comandos:
    1. npm start
    2. npm run dev -> Modo desarrollo
-7. Importe la colección postman a su gestor rest de preferencia "postman"
-8. IMPORTANTE: ejecute el metodo POST: Bull Data Insert, antes de cualquier metodo en particular
+7. Importe la colección postman a su gestor rest de preferencia "postman", esta esta incluida con el repositorio
+8. IMPORTANTE: ejecute el metodo POST: Bulk Data Insert, antes de cualquier metodo en particular
 
 # ENDPOINTS
 
@@ -31,7 +31,7 @@ A continuación lista de endpoint's definidos
 1. GET: {{url}}/testing/test -> Uselo para dara un testin incial del api
 2. POST: {{url}}/testing/testbody -> Uselo para dar un testing de datos enviados por body, raw o formdata
 3. POST: {{url}}/bulkdata/insert -> Uselo para realizar una inserción masiva de datos, antes de realizar consultas
-4. GET: {{url}}/productos/prostock ->
-5. GET: {{url}}/productos/promasvendidos
-6. GET{{url}}/productos/procategorias
-7. {{url}}/tiendas/promociones?dia=param
+4. GET: {{url}}/productos/prostock -> Uselo para validar el PUNTO 1 de la prueba
+5. GET: {{url}}/productos/promasvendidos -> Uselo para validar el PUNTO 2 de la prueba
+6. GET{{url}}/productos/procategorias -> Uselo para validar el PUNTO 3 de la prueba
+7. GET {{url}}/tiendas/promociones?dia=value -> Uselo para validar el PUNTO 4 de la prueba

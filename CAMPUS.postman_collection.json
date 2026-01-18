@@ -1,0 +1,193 @@
+{
+  "info": {
+    "_postman_id": "b3d0866c-7a1f-455a-b48f-0105b51fed2d",
+    "name": "CAMPUS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44826779",
+    "_collection_link": "https://go.postman.co/collection/44826779-b3d0866c-7a1f-455a-b48f-0105b51fed2d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Testing",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/testing/test",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "testing",
+            "test"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Testing body",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "coco",
+              "type": "text",
+              "uuid": "5430b245-4865-4c1a-9031-d4c5d7f93ad8"
+            },
+            {
+              "key": "age",
+              "value": "666",
+              "type": "text",
+              "uuid": "ceb6f766-36ef-4058-b711-f7f725066846"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{url}}/testing/testbody",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "testing",
+            "testbody"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Bulk Data Insert",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"permission\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/bulkdata/insert",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "bulkdata",
+            "insert"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Productos-Stock",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/productos/prostock",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "productos",
+            "prostock"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Productos-Mas-Vendidos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/productos/prostock",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "productos",
+            "prostock"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Productos-Categorias",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/productos/procategorias",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "productos",
+            "procategorias"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Promociones",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/productos/procategorias",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "productos",
+            "procategorias"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "url",
+      "value": ""
+    }
+  ]
+}
