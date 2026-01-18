@@ -212,6 +212,12 @@ const productosStocks = [
 	  id_producto: 2,
 	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
   },
+  {
+    cantidad: 120,
+	  id_tienda: 3,
+	  id_producto: 12,
+	  fecha_ingreso: new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ')
+  },
 ];
 
 // Productos:Categorias 
@@ -269,7 +275,7 @@ const productosCategorias = [
     id_producto: 13,	
   }
 ];
-
+// Pedidos
 const pedidos = [
   { 	
     instrucciones: 'Casa Verde',
@@ -314,20 +320,60 @@ const pedidos = [
     direccion	: 'Av Siempre viva #16',
   } 
 ];
-
+// Pedidos Produtos
 const pedidos_productos = [
   {
     cantidad: 5,
     valor_unitario: 3000,
     valor_unitario_promocion: 2500,
-    total_teorico: 3000,
-    total_final: 15000,
-    id_promocion: '',
-    id_producto: '',
-    id_pedido: '',
-  }
+    total_teorico: 15000,
+    total_final: 12500,
+    id_promocion: 1,
+    id_producto: 1,
+    id_pedido: 1,
+  },
+  {
+    cantidad: 10,
+    valor_unitario: 4000,
+    valor_unitario_promocion: 3500,
+    total_teorico: 40000,
+    total_final: 35000,
+    id_promocion: 1,
+    id_producto: 2,
+    id_pedido: 2,
+  },
+  {
+    cantidad: 20,
+    valor_unitario: 3000,
+    valor_unitario_promocion: 2500,
+    total_teorico: 60000,
+    total_final: 50000,
+    id_promocion: 2,
+    id_producto: 12,
+    id_pedido: 5,
+  },
+  {
+    cantidad: 20,
+    valor_unitario: 4000,
+    valor_unitario_promocion: 3500,
+    total_teorico: 80000,
+    total_final: 70000,
+    id_promocion: 3,
+    id_producto: 2,
+    id_pedido: 6,
+  },
+  {
+    cantidad: 8,
+    valor_unitario: 3000,
+    valor_unitario_promocion: 2500,
+    total_teorico: 24000,
+    total_final: 20000,
+    id_promocion: 2,
+    id_producto: 12,
+    id_pedido: 6,
+  },
 ];
-
+// Promociones
 const promociones = [
   {
     estado: 1,
@@ -350,7 +396,8 @@ const promociones = [
     porcentaje: 4,
     dias_semana: '["0", "0", "0", "0", "0", "0", "1"]',
   },
-]
+];
+
 //# Exports >>>
 module.exports = {
   categorias,
@@ -359,5 +406,6 @@ module.exports = {
   productosStocks,
   productosCategorias,
   pedidos,
-  promociones
+  promociones,
+  pedidos_productos
 }

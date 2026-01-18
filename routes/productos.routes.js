@@ -14,8 +14,7 @@ const productosController = new ProductosController();
 
 //# GET ============================================= >>>
 router.get('/prostock', upload.none(), productosController.get);
-
-
+router.get('/promasvendidos', upload.none(), productosController.getpromas);
 //# Exports >>>
 module.exports = router;
 

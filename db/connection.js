@@ -18,6 +18,7 @@ const PedidosModel = require('../models/Pedidos');
 const PedidosProductosModel = require('../models/PedidosProductos');
 //# Model: Categorias >>>
 const CategoriasModel = require('../models/Categorias');
+
 //# CLASS: Conexión >>>
 class DataBase {
   //# [MET]: Constructor >>>
@@ -26,7 +27,6 @@ class DataBase {
     this.initializeModels();
     this.associateModels();
   }
-  
   //# [MET]: Incializacion de Modelos >>>
   initializeModels() {
     console.log('Iniciando Modelos');
@@ -40,18 +40,15 @@ class DataBase {
     this.PedidosProductosModel    = PedidosProductosModel.initialize(this.sequelize);
     this.CategoriasModel          = CategoriasModel.initialize(this.sequelize);
   }
-
   //# [MET]: Asociación de Modelos >>>
   associateModels() {
     console.log("Asociando Modelos");
+    this.PedidosModel.associate();
     this.ProductosCategoriasModel.associate();
     this.ProductosStocksModel.associate();
     this.PedidosProductosModel.associate();
     this.TiendasPromocionesModel.associate();
-    this.ProductosModel.associate();
-    this.PedidosModel.associate();
   }
-
   //# [MET]: Autenticación BD >>>
   async authDB() {
     try {
