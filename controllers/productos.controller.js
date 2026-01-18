@@ -9,12 +9,15 @@ const ProductosStocksModel = require('../models/ProductosStocks');
 const ProductosModel = require('../models/Productos');
 const TiendasModel = require('../models/Tiendas');
 const PedidosProductosModel = require('../models/PedidosProductos');
+const ProductosCategoriasModel = require('../models/ProductosCategorias');
+const CategoriasModel = require('../models/Categorias');
 //# [CLASS]:  >>>
 class ProductosController {
   //# [MET]:  >>>
   constructor() {
     this.get = this.get.bind(this);
     this.getpromas = this.getpromas.bind(this);
+    this.getCategorias = this.getCategorias.bind(this);
     this.mapData = this.mapData.bind(this);
   }
   //# [MET]:  >>>
@@ -62,7 +65,7 @@ class ProductosController {
   }
 
   //# [MET]:  >>>
-  async getpromas (req=request, res=response) {
+  async getpromas(req=request, res=response) {
     try {
       
       let productosMasVendidos = await PedidosProductosModel.findAll({
@@ -97,6 +100,43 @@ class ProductosController {
       console.log(`Error: ${ error }`); 
     }
   }
+
+  //# [MET]:  >>>
+  async getCategorias(req=request, res=response) {
+    try {
+      let productosCategorias
+      productosCategorias = await ProductosCategoriasModel.findAll({
+        attributes: ['id'],
+        include: [
+          {
+            model: ProductosModel,
+            as: 'producto',
+            attributes: ['nombre']
+          },
+          {
+            model: CategoriasModel,
+            as: 'categoria',
+            attributes: ['id', 'nombre']
+          }
+        ]
+      });
+      if (!productosCategorias) {
+        return res.status(200).json({
+          message: 'No hay datos realacionados',
+          data: 0
+        });
+      }
+      
+      let mapData = this.mapData(productosCategorias, 'pc')
+
+      return res.status(200).json({
+        message: 'Consultado correctamente',
+        data: mapData
+      });
+    } catch(error) {
+      console.log(`Errors: ${ error }`);
+    }
+  }
   //# [MET]: Mapear Datos >>>
   mapData(data, type) {
     const result = {}
@@ -121,7 +161,7 @@ class ProductosController {
           stock: item.cantidad
         });
       });
-    }else if(type === 'pm') {
+    }else if (type === 'pm') {
           
       data.forEach(item => {
         
@@ -137,6 +177,18 @@ class ProductosController {
         }
         result[id_producto].unidadesVendidas += cantidad;
       });
+    }else if (type === 'pc') {
+      data.forEach(item => {
+        let id_categoria = item.categoria.id
+        if (!result[id_categoria]) {
+          result[id_categoria] = {
+            id_categoria: item.categoria.id,
+            nombre: item.categoria.nombre,
+            cantProductos: 0
+          }
+        }
+        result[id_categoria].cantProductos += 1
+      })
     }
     return dataResult = Object.values(result)
   }

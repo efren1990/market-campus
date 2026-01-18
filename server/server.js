@@ -20,7 +20,8 @@ class Server {
     this.endpoints = {
       testing: `/api/testing`,
       bulkdata: `/api/bulkdata`,
-      productos: `/api/productos`
+      productos: `/api/productos`,
+      tiendas: `/api/tiendas`
     }
     this.middlewares();
     this.routes();
@@ -43,7 +44,9 @@ class Server {
     
     //# Productos >>>
     this.app.use(this.endpoints.productos, require('../routes/productos.routes'));
-
+    
+    //# Tiendas >>>
+    this.app.use(this.endpoints.tiendas, require('../routes/tiendas.routes'));
   }
   
   //# [MET]: Listen Express Server 1 >>>

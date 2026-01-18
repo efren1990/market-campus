@@ -380,24 +380,67 @@ const promociones = [
     nombre: 'Promo 1',
     imagen: '',
     porcentaje: 5,
-    dias_semana: '["1", "0", "0", "0", "0", "0", "0"]',
+    dias_semana: "[1, 0, 1, 0, 0, 0, 1]",
   },
   {
     estado: 1,
     nombre: 'Promo 2',
     imagen: '',
     porcentaje: 3,
-    dias_semana: '["0", "0", "1", "0", "0", "0", "0"]',
+    dias_semana: "[1, 0, 1, 0, 1, 0, 0]",
   },
   {
     estado: 1,
     nombre: 'Promo 3',
     imagen: '',
     porcentaje: 4,
-    dias_semana: '["0", "0", "0", "0", "0", "0", "1"]',
+    dias_semana: "[0, 0, 1, 0, 0, 0, 1]",
   },
 ];
-
+const tiendasPromociones = [
+  {
+    estado: 1,
+    inicio:	 '2026-01-18 00:00:00',
+    fin:	 '2026-01-22 00:00:00',
+    id_tienda: 1,
+    id_promocion: 1
+  },
+  {
+    estado: 1,
+    inicio:	 '2026-01-18 00:00:00',
+    fin:	 '2026-01-22 00:00:00',
+    id_tienda: 2,
+    id_promocion: 1
+  },
+  {
+    estado: 1,
+    inicio:	 '2026-01-18 00:00:00',
+    fin:	 '2026-01-22 00:00:00',
+    id_tienda: 3,
+    id_promocion: 1
+  },
+  {
+    estado: 1,
+    inicio:	 '2026-01-18 00:00:00',
+    fin:	 '2026-01-28 00:00:00',
+    id_tienda: 2,
+    id_promocion: 3
+  },
+  {
+    estado: 1,
+    inicio:	 '2026-01-01 00:00:00',
+    fin:	 '2026-02-15 00:00:00',
+    id_tienda: 3,
+    id_promocion: 2
+  },
+  {
+    estado: 1,
+    inicio:	 '2026-01-19 00:00:00',
+    fin:	 '2026-02-28 00:00:00',
+    id_tienda: 1,
+    id_promocion: 3
+  }
+]
 //# Exports >>>
 module.exports = {
   categorias,
@@ -407,5 +450,6 @@ module.exports = {
   productosCategorias,
   pedidos,
   promociones,
-  pedidos_productos
+  pedidos_productos,
+  tiendasPromociones
 }

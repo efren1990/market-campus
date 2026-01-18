@@ -15,7 +15,8 @@ const {
   productosStocks, 
   pedidos, 
   promociones, 
-  pedidos_productos} = require('../db/bulkData');
+  pedidos_productos,
+  tiendasPromociones} = require('../db/bulkData');
 const TiendasModel = require('../models/Tiendas');
 const ProductosModel = require('../models/Productos');
 const ProductosCategoriasModel = require('../models/ProductosCategorias');
@@ -23,6 +24,7 @@ const ProductosStocksModel = require('../models/ProductosStocks');
 const PedidosModel = require('../models/Pedidos');
 const PromocionesModel = require('../models/Promociones');
 const PedidosProductosModel = require('../models/PedidosProductos');
+const TiendasPromocionesModel = require('../models/TiendasPromociones');
 
 //# [Class]: Bulk Data >>>
 class BulkDataController {
@@ -68,9 +70,14 @@ class BulkDataController {
       if (!existPedidosProductos) {
         await this.crearDatos('pedidospro')
       }
+      const existTiendasPromos = await TiendasPromocionesModel.findOne();
+      if (!existTiendasPromos) {
+        await this.crearDatos('tiendaspromos')
+      }
+      
       res.status(200).json({
         msg: 'Datos insertados !!!'
-      })
+      });
     } else {
 
       return res.status(400).json({
@@ -120,6 +127,10 @@ class BulkDataController {
         // Pedidos Productos
         case 'pedidospro':
           await PedidosProductosModel.bulkCreate(pedidos_productos, { transaction: t });
+        break;
+
+        case 'tiendaspromos':
+          await TiendasPromocionesModel.bulkCreate(tiendasPromociones, { transaction: t });
         break;
       }
       
